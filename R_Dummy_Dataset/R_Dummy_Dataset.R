@@ -59,8 +59,9 @@ if ("S.N" %in% colnames(dummy_data)) {
 }
 
 # Step 7: Ensuring The “S/N” Column is the First Column
-# Reordering columns to ensure "S/N" is the first column 
-dummy_data <- dummy_data[, c("S/N", "Names", "Sex", "Nationality")]
+# Reordering columns to ensure "S/N" is the first column
+column_order <- order(colnames(dummy_data) != "S/N")
+dummy_data <- dummy_data[, column_order]
 
 # Step 8: Exporting Data
 
